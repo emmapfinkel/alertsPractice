@@ -8,14 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var presentAlert = false
+    
     var body: some View {
+       
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text(presentAlert ? " ": " ")
+            
+                 Button("Submit") {
+                presentAlert = true
+            }
+            Spacer()
+            
+            
         }
         .padding()
+        .alert("Done", isPresented: $presentAlert, actions: {})
+        
     }
 }
 
